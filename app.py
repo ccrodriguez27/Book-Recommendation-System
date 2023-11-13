@@ -16,16 +16,20 @@ all_books = books_final['Book-Title'].tolist()
 app.layout = html.Div([
     html.H1("Book Recommendation System", style={'margin-top': '20px', 'margin-left': '20px'}),  # Add margin-top to the title
     
-    html.H6("Select a book:", style = {'margin-top': '20px', 'margin-left': '20px'}),
+    #html.H6("Select a book:", style = {'margin-top': '20px', 'margin-left': '20px'}),
     dcc.Dropdown(
         id='book-dropdown',
         options=[{'label': book, 'value': book} for book in all_books],
         value=None,
         placeholder="Book Title",
-        style={'width': '80%', 'margin-top': '10px', 'margin-left': '10px'}  # Add margin-left for space
+        style={'width': '80%', 'margin-top': '15px', 'margin-left': '10px'}  # Add margin-left for space
     ),
     
-    dbc.Button('Get Suggestions', id='get-suggestions-button', style={'margin-top': '20px', 'margin-left': '20px'}),  # Add margin-top and margin-left
+    dbc.Button('Show Recommendations', id='get-suggestions-button', style={'margin-top': '20px', 'margin-left': '20px'}),  # Add margin-top and margin-left
+    html.Div([
+        html.H6("Selected Book:", style={'margin-top': '20px', 'margin-left': '20px'}),
+        html.H6("Book Recommendations:", style={'margin-top': '20px', 'margin-left': '100px'}),
+    ], style={'display': 'flex', 'flexDirection': 'row'}),
     
     html.Div(id='suggestions-output', style={'display': 'flex', 'flexWrap': 'wrap', 'alignItems': 'center', 'margin': '20px'})
 ])
