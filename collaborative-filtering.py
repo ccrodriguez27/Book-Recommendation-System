@@ -41,14 +41,15 @@ books_final = books[books['ISBN'].isin(popular_books.index)]
 users_final = raw_users[raw_users['User-ID'].isin(users_atleast30.index)]
 
 ## Filter ratings
-ratings_final = raw_ratings[(raw_ratings['User-ID'].isin(users_atleast30.index)) | (raw_ratings['ISBN'].isin(popular_books))]
-
+ratings_final = raw_ratings[(raw_ratings['User-ID'].isin(users_final['User-ID'].values))]
+ratings_final = ratings_final[ratings_final['ISBN'].isin(books_final['ISBN'].values)]
 # %%
 
 merged_df = pd.merge(ratings_final, users_final, left_on = 'User-ID', right_on = 'User-ID', how='left')
 merged_df = pd.merge(merged_df, books_final, left_on = 'ISBN', right_on = 'ISBN', how='left')
 
 # %%
+
 final_df = merged_df.dropna()
 
 
