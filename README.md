@@ -21,9 +21,11 @@ This project utilizes the following dataset: https://www.kaggle.com/datasets/ara
 It consists of three files - Books, Users, and Ratings. The "Books" dataset contains basic information on the book's title, author, publisher, year of publication, and ISBN. User demographic information can be found in the "Users" file, while the "Ratings" data contain user ratings given to each book, ranging from 0-10.
 
 #### Methodology:
-Filtering: Removed books and users with fewer than 30 ratings.
-Matrix Construction: Created a user-item matrix using ratings as values.
-Algorithm Application: Utilized the KNN algorithm to identify the most similar books, employing cosine similarity as the distance metric.
+1. Filtering: Removed books and users with fewer than 30 ratings.
+
+2. Matrix Construction: Created a user-item matrix using ratings as values.
+
+3. Algorithm Application: Utilized the KNN algorithm to identify the most similar books, employing cosine similarity as the distance metric.
 
 
 
